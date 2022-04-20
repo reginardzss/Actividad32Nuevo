@@ -1,0 +1,21 @@
+#Programa Prueba
+
+import math
+
+def squareRoot(num):
+    return math.sqrt(num)
+
+numberInt = int (input ())
+menor50 = False
+number2 = squareRoot(numberInt)
+
+print("La raiz cuadrada es: " + str(number2))
+
+    
+if number2 < 50:
+    menor50 = True
+    
+    
+    
+
+    
