@@ -1,10 +1,11 @@
 # Actividad 3.2
 
+## Integrantes
 - Regina Rodriguez
 - Pablo Navarro
 - Paulina
 
- # Descripción de la Evidencia
+## Descripción de la Evidencia
 
 En equipos de máximo 3 personas:
 
