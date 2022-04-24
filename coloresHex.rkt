@@ -42,7 +42,7 @@
          (list(string-append(string-append(string-append(string-append  "<span style='color: #0000CD'>" (car lista_linea)) "</span>") (slist->string(filtro1 (slist->string  (cdr lista_linea))) )) "<div></div>"))
          
          ;False
-         (list (string-append (string-append (filtro-2 (car lista_linea))  (slist->string(filtro1 (slist->string (cdr lista_linea))) )))  "<div></div>")
+         (list (string-append (string-append (filtro2 (car lista_linea))  (slist->string(filtro1 (slist->string (cdr lista_linea))) )))  "<div></div>")
          ))
      ]
    
