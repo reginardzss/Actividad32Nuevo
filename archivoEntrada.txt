@@ -2,20 +2,17 @@
 
 import math
 
-def squareRoot(num):
-    return math.sqrt(num)
+def squareRoot ( num ) :
+    return num*num
 
-numberInt = int (input ())
+numberInt = int ( input ( ) )
 menor50 = False
-number2 = squareRoot(numberInt)
+number2 = squareRoot ( numberInt )
 
-print("La raiz cuadrada es: " + str(number2))
+print ( " La raiz cuadrada es : " + str ( number2 ) )
 
-    
-if number2 < 50:
+if number2 < 50 :
     menor50 = True
-    
-    
     
 
     

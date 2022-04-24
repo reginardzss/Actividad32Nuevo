@@ -1,3 +1,0 @@
-#Pablo
-#Pau
-#Gina
