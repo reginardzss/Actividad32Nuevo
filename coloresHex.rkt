@@ -1,3 +1,5 @@
+#lang racket
+
 ;Actividad Integradora 3.4 Resaltador de sintaxis (Evidencia de Competencia)
 ; Paulina Lopez Holguin A01284186
 ; Pablo Navarro Zepeda A01284116
@@ -15,6 +17,7 @@
       0  
    (+ (despliega (car lista) p2) (imprime (cdr lista) p2))))
 
+
 ;Funcion auxiliar para convertir lista a string
 (define (slist->string slst)
   (string-join slst " ")
@@ -27,12 +30,22 @@
   (if (empty? lista_linea)
       '("")   
       (cond
-        [(regexp-match #rx"#" linea)  (list(string-append(string-append(string-append  "<span style='color: #E1C699'>" linea) "</span>")"<div> </div>"))] ;Si la linea es un comentario
-        [else
-         (if (empty? (cdr lista_linea))
+       [(regexp-match #rx"#" linea)  (list(string-append(string-append(string-append  "<span style='color: #E1C699'>" linea) "</span>")"<div></div>"))]
+    [(if  (empty? (cdr lista_linea))
+         ;True
          (list (string-append (string-append (filtro2 (car lista_linea))  )  "<div></div>"))
-         (list (string-append (string-append (filtro2 (car lista_linea))  (slist->string(filtro1 (slist->string  (cdr lista_linea))) )))  "<div> </div>")) ; HACE ERROR
+          
+         ;False
+         (if  (equal? "=" (car(cdr lista_linea)))
+
+         ;True
+         (list(string-append(string-append(string-append(string-append  "<span style='color: #0000CD'>" (car lista_linea)) "</span>") (slist->string(filtro1 (slist->string  (cdr lista_linea))) )) "<div></div>"))
+         
+         ;False
+         (list (string-append (string-append (filtro-2 (car lista_linea))  (slist->string(filtro1 (slist->string (cdr lista_linea))) )))  "<div></div>")
+         ))
      ]
+   
     )
   )
   )
@@ -40,7 +53,7 @@
 
 ;Segundo filtro 
 (define (filtro2 atomo)
-    (cond ;Todas las condiciones buscan palabras y si se encuentran cambian le agregan la configuracion html
+    (cond ;Todas las condiciones buscan palabras y si se encuentran le agregan la configuracion html
       
     [(regexp-match #rx"^if$|^for$|^while$|^else$|^elif$|^in$|^with$|^as$" atomo)  (string-append(string-append   " <span style='color: #FF00FF'>"   atomo)  " </span>" )]
     [(regexp-match #rx"^int$|^str$" atomo)  (string-append(string-append " <span style='color: #3CB371'>" atomo) "</span>") ]
@@ -97,4 +110,4 @@
   
   )
 
-(recorre "archivoEntrada.txt" "salida3_4.html")
+(recorre "archivoEntrada.txt" "salida3_4.html") ;Inicio del programa
